@@ -1,0 +1,1 @@
+# notas_influxdb_telegraf_grafana
