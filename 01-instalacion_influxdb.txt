@@ -1,0 +1,23 @@
+################## INFLUXDB --> gestor de base de datos
+# descargando la llave
+wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+
+# agregando repo
+source /etc/lsb-release
+echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+
+# actualizando e instalando influxdb
+sudo apt update && sudo apt install -y influxdb influxdb-client
+
+# creando db para telegraf en influxdb
+
+> influx
+> create database telegraf_db
+> create user telegraf_user with password 'MyP@ssw0rd'
+
+# validando la db y el usuario
+> show databases
+> show users
+
+
+

@@ -1,0 +1,16 @@
+############### TELEGRAF --> metricas
+# usa los mismos repos que influxdb
+# instalado telegraf
+sudo apt install -y telegraf lm-sensors
+
+# backup de config
+sudo cp /etc/telegraf/telegraf.conf /etc/telegraf/telegraf.conf.bk
+
+# reiniciamos el servicio
+sudo systemctl restart telegraf.service 
+
+# testear telegraf config
+sudo telegraf -test -config /etc/telegraf/telegraf.conf --input-filter cpu
+
+
+

@@ -1,0 +1,17 @@
+################# GRAFANA --> dashboard
+# descargando llaves
+wget -qO- https://packages.grafana.com/gpg.key | sudo apt-key add -
+
+# agregando repo
+sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+
+# actualizando e instalando
+sudo apt update && sudo apt install -y grafana
+
+# activando el servicio
+sudo systemctl enable grafana-server --now
+
+# dashboard para telegraf
+# https://grafana.com/dashboards/5955
+
+
